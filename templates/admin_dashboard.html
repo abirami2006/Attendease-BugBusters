@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Batches</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .batch-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .batch-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    {% for class_obj in class_options %}
+        <div class="batch-card" onclick="goToSubjects('{{ class_obj.batch }}')">{{ class_obj.class_name }}</div>
+    {% endfor %}
+
+    <script>
+        function goToSubjects(batchName) {
+            // Redirect to the subjects page with the selected batch name
+            window.location.href = 'subjects.html?batch=' + batchName;
+        }
+    </script>
+</body>
+</html>

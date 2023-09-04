@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Update Cards</title>
+</head>
+<body>
+    {% for class_obj in class_options %}
+        <div class="batch-card" onclick="goToSubjects('{{ class_obj.value }}')">{{ class_obj.label }}</div>
+    {% endfor %}
+
+    <script>
+        function goToSubjects(batchName) {
+            // Redirect to the subjects page with the selected batch name
+            window.location.href = 'subjects.html?batch=' + batchName;
+        }
+    </script>
+</body>
+</html>
